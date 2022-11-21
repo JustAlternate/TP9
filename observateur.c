@@ -17,7 +17,7 @@ int faire_transition(etat e, Type_Commande c){
       if (c == Gauche || c == Droite){
         return 0;
       }
-      if (c == Mesurer){
+      if (c == Mesure){
         return 1;
       }
       if (c == Avancer){
@@ -28,7 +28,7 @@ int faire_transition(etat e, Type_Commande c){
       if (c == Gauche || c == Droite || c == Avancer){
         return 0;
       }
-      if (c == Mesurer){
+      if (c == Mesure){
         return 1;
       }
       return 1; 
