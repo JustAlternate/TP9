@@ -1,5 +1,6 @@
 
 #include "observateur.h"
+#include "programme.h"
 
 #include <stdio.h>
 

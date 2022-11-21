@@ -21,7 +21,9 @@ robot.o: robot.c robot.h
 
 terrain.o: terrain.c terrain.h
 
-environnement.o: environnement.c environnement.h robot.h terrain.h
+observateur.o: observateur.c observateur.h programme.h
+
+environnement.o: environnement.c environnement.h observateur.h robot.h terrain.h programme.h
 
 programme.o: programme.c programme.h type_pile.h
 
