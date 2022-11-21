@@ -3,42 +3,32 @@
 
 #include <stdio.h>
 
-int verif_commande(etat e, char* programme){
-  /*
-  Renvoie un 0 si le programme n'est pas valide.
-  sinon renvoie un 1
-  */
-  for (int i = 0; programme[i]!='\0'; i++){
-    e = faire_transition(e,programme[i]);
-  }
-  if (etat == 2){
-    return 0;
-  }
-  return 1;
+int init_etat(){
+  return 0;
 }
  
-int faire_transition(etat e, command transition){
+int faire_transition(etat e, Type_Commande c){
   /* 
   Arguments : Un etat e , une command c  
   Renvoie l'état suivant en fonction de la command 
   */
   switch(e){
     case 0:
-      if (transition == "G" || transition == "D"){
+      if (c == Gauche || c == Droite){
         return 0;
       }
-      if (transition == "M"){
+      if (c == Mesurer){
         return 1;
       }
-      if (transition == "A"){
+      if (c == Avancer){
         return 2;
       } 
       return 0;
     case 1:
-      if (transition == "G" || transition == "D" || transition == "A"){
+      if (c == Gauche || c == Droite || c == Avancer){
         return 0;
       }
-      if (transition == "M"){
+      if (c == Mesurer){
         return 1;
       }
       return 1; 

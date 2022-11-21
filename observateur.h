@@ -3,13 +3,12 @@
 
 #include "environnement.h"
 
-
 typedef struct etat{
   0,
   1,
   2
 }
 
-int verif_commande(etat e, command transition);
+int verif_commande(etat e, Type_Commande c);
 
 #endif
