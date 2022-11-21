@@ -1,5 +1,6 @@
 
 #include "environnement.h"
+#include "observateur.h"
 
 #include <stdio.h>
 
@@ -9,8 +10,7 @@
    terrain, orientation initiale vers l'est
 */
 erreur_terrain initialise_environnement(Environnement *envt,
-                                        char *fichier_terrain,
-                                        etat etat_programme) {
+                                        char *fichier_terrain) {
   erreur_terrain errt;
   int x, y; // Position initiale du robot
   FILE *f;
@@ -25,13 +25,13 @@ erreur_terrain initialise_environnement(Environnement *envt,
 
   init_robot(&(envt->r), x, y, Est);
 
-  *etat_programme = init_etat();
+  envt->etat = init_etat_obs();
 
 
   return errt;
 }
 
-resultat_deplacement avancer_envt(Environnement *envt, etat *etat_programme) {
+resultat_deplacement avancer_envt(Environnement *envt) {
   int x, y; // Position devant le robot
 
   // Récupérer la position devant le robot
@@ -57,19 +57,19 @@ resultat_deplacement avancer_envt(Environnement *envt, etat *etat_programme) {
   }
   return OK_DEPL;
 
-  *etat_programme = faire_transition(*etat_programme, Avancer);
+  envt->etat = faire_transition(envt->etat, Avancer);
 }
 
 /* Tourner le robot à gauche */
-void gauche_envt(Environnement *envt, etat *etat_programme) { 
+void gauche_envt(Environnement *envt) { 
   tourner_a_gauche(&(envt->r)); 
-  *etat_programme = faire_transition(*etat_programme, Gauche); 
+  envt->etat = faire_transition(envt->etat, Gauche); 
   }
 
 /* Tourner le robot à droite */
-void droite_envt(Environnement *envt, etat *etat_programme) { 
+void droite_envt(Environnement *envt) { 
   tourner_a_droite(&(envt->r));
-  *etat_programme = faire_transition(*etat_programme, Droite); 
+  envt->etat = faire_transition(envt->etat, Droite); 
   }
 
 /* Effectuer une mesure
@@ -89,13 +89,13 @@ void droite_envt(Environnement *envt, etat *etat_programme) {
      2 rocher
      3 erreur (valeur du paramètre incorrect)
  */
-int mesure_envt(Environnement *envt, int d, etat *etat_programme) {
+int mesure_envt(Environnement *envt, int d) {
   int x, y;   // Position courante du robot
   int dx, dy; // Direction du robot
   int mx, my; // Position de la mesure
 
   position(&(envt->r), &x, &y);
-  *etat_programme = faire_transition(*etat_programme, Mesurer);
+  envt->etat = faire_transition(envt->etat, Mesure);
 
   switch (orient(&(envt->r))) {
   case Nord:

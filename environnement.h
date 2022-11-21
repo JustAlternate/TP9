@@ -10,6 +10,7 @@
 typedef struct {
   Robot r;
   Terrain t;
+  int etat;
 } Environnement;
 
 /* Initialise l'environnement envt :
@@ -17,7 +18,7 @@ typedef struct {
    - initialise le robot : coordonnées initiales lues dans le fichier
    terrain, orientation initiale vers l'est
 */
-erreur_terrain initialise_environnement(Environnement *envt, char *fichier_terrain, etat etat_programme);
+erreur_terrain initialise_environnement(Environnement *envt, char *fichier_terrain);
 
 /* Résultat d'un déplacement de robot */
 typedef enum {
@@ -29,13 +30,13 @@ typedef enum {
 } resultat_deplacement;
 
 /* Avancer le robot sur le terrain : */
-resultat_deplacement avancer_envt(Environnement *envt, etat *etat_programme);
+resultat_deplacement avancer_envt(Environnement *envt);
 
 /* Tourner le robot à gauche */
-void gauche_envt(Environnement *envt, etat *etat_programme);
+void gauche_envt(Environnement *envt);
 
 /* Tourner le robot à droite */
-void droite_envt(Environnement *envt, etat *etat_programme);
+void droite_envt(Environnement *envt);
 
 /* Effectuer une mesure
    Paramètre d : la direction de la mesure
@@ -53,7 +54,7 @@ void droite_envt(Environnement *envt, etat *etat_programme);
      1 eau
      2 rocher
  */
-int mesure_envt(Environnement *envt, int d, etat *etat_programme);
+int mesure_envt(Environnement *envt, int d);
 
 /* Afficher le terrain avec la position et l'orientation du robot */
 void afficher_envt(Environnement *envt);

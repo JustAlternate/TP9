@@ -1,6 +1,6 @@
 CC=clang -Wall
 
-PROGRAMMES=test_terrain test_robot robot_terrain curiosity curiosity-test test_generation_terrains curiosity-perf curiosity-obs
+PROGRAMMES=curiosity-obs
 
 all: $(PROGRAMMES)
 
