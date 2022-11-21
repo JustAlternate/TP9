@@ -24,6 +24,7 @@ int nb_cases_occupees(Terrain *T) {
 // generation_terrains N largeur hauteur dObstacle fichier_res
 // la sortie se fait dans le fichier resultat
 
+
 int main(int argc, char **argv) {
   int N, l, h;
   float dObst;
@@ -61,12 +62,9 @@ int main(int argc, char **argv) {
   // Écriture du nombre de terrains
   fprintf(resFile, "%d\n", N);
 
-  // Initialisation de la fonction random
   srand(time(NULL));
-
-  // Génération aléatoire des terrains
-  // Écriture des terrains générés dans le fichier resFile
-
+  // Initialisation de la fonction random
+  // A compléter
   int terrain_genere = 0;
   float densite_obtenus_sum = 0;
   for (int i = 0; i<N; i++){
@@ -78,19 +76,20 @@ int main(int argc, char **argv) {
     }
     ecrire_terrain(resFile, &T, l/2, h/2);
 
-    float densite_obtenus = (float)nb_cases_occupees(&T)/((float)l*(float)h);
+    float densite_obtenus = (float)nb_cases_occupees(&T)/((float)l * (float)h);
     densite_obtenus_sum += densite_obtenus;
     fprintf(resFile,"densite_attendus = %f\n",dObst);
     fprintf(resFile,"densite_obtenus = %f\n",densite_obtenus);
 
   }
   float densite_moyenne_des_terrains = densite_obtenus_sum / N;
-  int pourcentage_de_terrains_valide_genere = (float)N/(float)terrain_genere *100;
+  int pourcentage_de_terrains_valide_genere = (float)N/(float)terrain_genere * 100;
   fprintf(resFile,"densite_moyenne = %f\n",densite_moyenne_des_terrains);
   fprintf(resFile,"pourcentage de terrains valide genere = %d%\n",pourcentage_de_terrains_valide_genere);
-  
+
 
   // fermeture des fichiers
   fclose(resFile);
   return 0;
 }
+

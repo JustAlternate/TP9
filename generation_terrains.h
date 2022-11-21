@@ -15,3 +15,5 @@ void generation_aleatoire(Terrain *T, int l, int h, float dObst);
    version avec tableau annexe
 */
 int existe_chemin_vers_sortie(Terrain *T);
+
+float randfloat();

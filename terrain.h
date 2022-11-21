@@ -27,7 +27,7 @@ typedef enum { OK, ERREUR_FICHIER, ERREUR_HAUTEUR_INCORRECTE, ERREUR_LECTURE_LAR
    ... (à compléter)
  */
 erreur_terrain lire_terrain(FILE *f, Terrain *t, int *x, int *y);
-  
+
 /* Largeur d'un terrain */
 int largeur(Terrain *t);
 

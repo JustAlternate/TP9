@@ -3,31 +3,33 @@
 #include <stdlib.h>
 #include <time.h>
 
+//rand : génere un nobre entre a et b inclus
+int randint(int a, int b){
+  return (rand() % (b - a + 1)) + a;
+}
+
+//génère un nombre entre 0 et 1
+float randfloat(){
+  return ((float) rand()) / ((float) RAND_MAX);
+}
+
 /* Génère aléatoirement un terrain T, de largeur l, de hauteur h,
    avec une densité d'obstacle dObst : 0 <= dObst <= 1.
    Précondition : T est un pointeur vers un terrain existant.
    Résultat : T est modifié et contient le terrain généré.
               La case centrale de T ne contient pas d'obstacle.
  */
-
-int randint(int a, int b){
-  return (rand()%(b-a +1))+ a;
-}
-
-float randfloat(){
-  return ((float) rand()) / ((float)RAND_MAX);
-}
-
 void generation_aleatoire(Terrain *T, int l, int h, float dObst) {
   T->largeur = l;
   T->hauteur = h;
-  for (int i=0; i<l; i++){
-    for (int j=0; j<h; j++){
-      if ((randfloat()<dObst) && !(i == h/2 && j == l/2)){ // A changer si on veut déplacer la position de départ du robot.
-        T->tab[i][j] = ROCHER;
+  for(int colone = 0; colone < l; colone++){
+    for (int ligne = 0; ligne < h; ligne++){
+      if ((randfloat() < dObst) && !( colone == l/2 && ligne == h/2)){
+        T->tab[colone][ligne] = ROCHER;
       }
-      else{
-        T->tab[i][j] = LIBRE;
+      else
+      {
+        T->tab[colone][ligne] = LIBRE;
       }
     }
   }

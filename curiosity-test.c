@@ -198,6 +198,7 @@ int main(int argc, char **argv) {
         }
       }
     }
+    printf("x attendu:%d,y attendu:%d,o attendu:%c\nx du robot:%d,y du robot:%d,o du robot  :%d\n", x_fin, y_fin, o_fin, envt.r.x, envt.r.y, envt.r.o);
     printf("le robot a dépasser son nombre d'éxécusion sans arriver sur la case demandée!\n");
     return 1;
     break;
@@ -243,7 +244,7 @@ int main(int argc, char **argv) {
       }
     }
     printf("Robot sur une case libre, programme terminé :-/\n");
-    printf("x attendu:%d,y attendu:%d,o attendu:%c\nx du robot:%d,y du robot:%d,o du robot:%d\n", x_fin, y_fin, o_fin, envt.r.x, envt.r.y, envt.r.o);
+    printf("x attendu:%d,y attendu:%d,o attendu:%c\nx du robot:%d,y du robot:%d,o du robot  :%d\n", x_fin, y_fin, o_fin, envt.r.x, envt.r.y, envt.r.o);
     printf("nb_execution:%d\nreponse_attendu:%c\n", nb_execution, reponse_attendu);
     break;
   case PLOUF_ROBOT:

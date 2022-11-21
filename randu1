@@ -1,0 +1,30 @@
+3
+5
+5
+..#.#
+.###.
+..C##
+.#..#
+..###
+densite_attendus = 0.500000
+densite_obtenus = 0.480000
+5
+5
+.#..#
+###..
+#.C..
+.###.
+###.#
+densite_attendus = 0.500000
+densite_obtenus = 0.520000
+5
+5
+##.##
+.#..#
+..C..
+.#..#
+##.#.
+densite_attendus = 0.500000
+densite_obtenus = 0.440000
+densite_moyenne = 0.480000
+pourcentage de terrains valide genere = 100%
