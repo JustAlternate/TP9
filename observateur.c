@@ -1,10 +1,9 @@
 
 #include "observateur.h"
-#include "programme.h"
 
 #include <stdio.h>
 
-int init_etat(){
+int init_etat_obs(){
   return 0;
 }
  

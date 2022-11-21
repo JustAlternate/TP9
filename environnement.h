@@ -3,6 +3,7 @@
 
 #include "robot.h"
 #include "terrain.h"
+#include "observateur.h"
 
 /* Environnement : terrain + robot */
 
@@ -16,8 +17,7 @@ typedef struct {
    - initialise le robot : coordonnées initiales lues dans le fichier
    terrain, orientation initiale vers l'est
 */
-erreur_terrain initialise_environnement(Environnement *envt,
-                                        char *fichier_terrain);
+erreur_terrain initialise_environnement(Environnement *envt, char *fichier_terrain, etat etat_programme);
 
 /* Résultat d'un déplacement de robot */
 typedef enum {
@@ -25,16 +25,17 @@ typedef enum {
   PLOUF,   /* Déplacement dans l'eau */
   CRASH,   /* Déplacement dans un rocher */
   SORTIE,  /* Sortie du terrain */
+  ERREUR_PROGRAMME /* déplacement illogique */
 } resultat_deplacement;
 
 /* Avancer le robot sur le terrain : */
-resultat_deplacement avancer_envt(Environnement *envt);
+resultat_deplacement avancer_envt(Environnement *envt, etat *etat_programme);
 
 /* Tourner le robot à gauche */
-void gauche_envt(Environnement *envt);
+void gauche_envt(Environnement *envt, etat *etat_programme);
 
 /* Tourner le robot à droite */
-void droite_envt(Environnement *envt);
+void droite_envt(Environnement *envt, etat *etat_programme);
 
 /* Effectuer une mesure
    Paramètre d : la direction de la mesure
@@ -52,7 +53,7 @@ void droite_envt(Environnement *envt);
      1 eau
      2 rocher
  */
-int mesure_envt(Environnement *envt, int d);
+int mesure_envt(Environnement *envt, int d, etat *etat_programme);
 
 /* Afficher le terrain avec la position et l'orientation du robot */
 void afficher_envt(Environnement *envt);

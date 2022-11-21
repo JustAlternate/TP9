@@ -9,7 +9,8 @@
    terrain, orientation initiale vers l'est
 */
 erreur_terrain initialise_environnement(Environnement *envt,
-                                        char *fichier_terrain) {
+                                        char *fichier_terrain,
+                                        etat etat_programme) {
   erreur_terrain errt;
   int x, y; // Position initiale du robot
   FILE *f;
@@ -24,10 +25,13 @@ erreur_terrain initialise_environnement(Environnement *envt,
 
   init_robot(&(envt->r), x, y, Est);
 
+  *etat_programme = init_etat();
+
+
   return errt;
 }
 
-resultat_deplacement avancer_envt(Environnement *envt) {
+resultat_deplacement avancer_envt(Environnement *envt, etat *etat_programme) {
   int x, y; // Position devant le robot
 
   // Récupérer la position devant le robot
@@ -52,13 +56,21 @@ resultat_deplacement avancer_envt(Environnement *envt) {
     }
   }
   return OK_DEPL;
+
+  *etat_programme = faire_transition(*etat_programme, Avancer);
 }
 
 /* Tourner le robot à gauche */
-void gauche_envt(Environnement *envt) { tourner_a_gauche(&(envt->r)); }
+void gauche_envt(Environnement *envt, etat *etat_programme) { 
+  tourner_a_gauche(&(envt->r)); 
+  *etat_programme = faire_transition(*etat_programme, Gauche); 
+  }
 
 /* Tourner le robot à droite */
-void droite_envt(Environnement *envt) { tourner_a_droite(&(envt->r)); }
+void droite_envt(Environnement *envt, etat *etat_programme) { 
+  tourner_a_droite(&(envt->r));
+  *etat_programme = faire_transition(*etat_programme, Droite); 
+  }
 
 /* Effectuer une mesure
    Paramètre d : la direction de la mesure
@@ -77,12 +89,13 @@ void droite_envt(Environnement *envt) { tourner_a_droite(&(envt->r)); }
      2 rocher
      3 erreur (valeur du paramètre incorrect)
  */
-int mesure_envt(Environnement *envt, int d) {
+int mesure_envt(Environnement *envt, int d, etat *etat_programme) {
   int x, y;   // Position courante du robot
   int dx, dy; // Direction du robot
   int mx, my; // Position de la mesure
 
   position(&(envt->r), &x, &y);
+  *etat_programme = faire_transition(*etat_programme, Mesurer);
 
   switch (orient(&(envt->r))) {
   case Nord:

@@ -2,13 +2,11 @@
 #define _OBSERVATEUR_H_
 
 #include "environnement.h"
+#include "programme.h"
 
-typedef struct etat{
-  0,
-  1,
-  2
-}
+typedef int etat;
 
-int verif_commande(etat e, Type_Commande c);
+int init_etat_obs();
+int faire_transition(etat e, Type_Commande c);
 
 #endif
