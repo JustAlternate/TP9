@@ -35,6 +35,7 @@ int faire_transition(etat e, Type_Commande c){
     case 2:
       return 2; 
   }
+  return -1;
 }
 
 
