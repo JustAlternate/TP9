@@ -1,5 +1,5 @@
-terrain_test.txt
-programme_imbriques2.txt
+fichiers_test_TP7/terrain_test.txt
+fichiers_test_TP7/programme_imbriques2.txt
 10000
 F
 5

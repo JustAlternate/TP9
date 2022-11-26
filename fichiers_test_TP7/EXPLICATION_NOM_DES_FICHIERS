@@ -1,0 +1,8 @@
+Les fichiers :
+
+'programme_%' sont des fichiers dans lequels il y a un programme a la première ligne.
+
+'terrain_%' sont des fichiers terrains.
+
+'programme_test_%' sont les fichiers qui test un programme avec un terrain.
+C'est ceux çi qu'il faut executé avec curiosity-test.

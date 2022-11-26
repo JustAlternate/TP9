@@ -1,4 +1,4 @@
-terrain_full_eau.txt
-programme_sortie_terrain.txt
+fichiers_test_TP7/terrain_full_eau.txt
+fichiers_test_TP7/programme_sortie_terrain.txt
 10000
 P

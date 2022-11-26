@@ -1,5 +1,5 @@
-terrain_test.txt
-programme_ignore_rotation.txt
+fichiers_test_TP7/terrain_test.txt
+fichiers_test_TP7/programme_ignore_rotation.txt
 10000
 F
 3
