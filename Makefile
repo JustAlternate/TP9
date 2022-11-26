@@ -1,7 +1,6 @@
 CC=clang -Wall
 
-PROGRAMMES=curiosity-obs
-
+PROGRAMMES=curiosity-obs curiosity-perf curiosity-test test_generation_terrains curiosity-test% curiosity robot_terrain test_robot test_terrain
 all: $(PROGRAMMES)
 
 ######################################################################
@@ -38,7 +37,7 @@ curiosity.o: curiosity.c environnement.h programme.h \
 	interprete.h robot.h terrain.h type_pile.h
 
 curiosity-test.o: curiosity-test.c environnement.h programme.h \
-	interprete.h robot.h terrain.h type_pile.h
+	interprete.h robot.h terrain.h type_pile.h observateur.h
 
 generation_terrains.o: generation_terrains.c generation_terrains.h terrain.h
 
