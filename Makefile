@@ -7,7 +7,6 @@ all: $(PROGRAMMES)
 ######################################################################
 #                       Règles de compilation                        #
 ######################################################################
-
 %.o: %.c
 	$(CC) -c $<
 
@@ -30,7 +29,7 @@ programme.o: programme.c programme.h type_pile.h
 interprete.o: interprete.c interprete.h environnement.h \
 	programme.h type_pile.h robot.h terrain.h
 
-interprete%.o: interprete%.c interprete.h environnement.h \
+interprete%.o: interpretei/interprete%.c interprete.h environnement.h \
 	programme.h type_pile.h robot.h terrain.h
 
 type_pile.o: type_pile.c type_pile.h
@@ -72,7 +71,7 @@ curiosity-test: curiosity-test.o environnement.o programme.o interprete.o \
 	$(CC) $^ -o $@
 
 curiosity-test%: curiosity-test.o environnement.o programme.o interprete%.o \
-	robot.o terrain.o type_pile.o
+	robot.o terrain.o type_pile.o observateur.o
 	$(CC) $^ -o $@
 
 test_generation_terrains: test_generation_terrains.o generation_terrains.o terrain.o
