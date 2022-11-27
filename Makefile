@@ -6,7 +6,7 @@ all: $(PROGRAMMES) $(curiosity-test-all)
 
 tests=resultat_TP8
 
-tests: $(tests)
+tests: curiosity-perf $(tests)
 
 resultat_TP8:
 	resultats_TP8/./generer_resultats_programmes.sh
@@ -129,3 +129,6 @@ clean:
 	rm -f $(PROGRAMMES) $(curiosity-test-all) *.o *.h.gch
 
 clear: clean
+
+clean-tests:
+	rm resultats_TP8/res* resultats_TP8/stats*
