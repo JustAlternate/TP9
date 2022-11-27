@@ -1,5 +1,5 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )" 
-#la ligne du dessus viens du site internet https://www.ipgirl.com/71/obtenir-le-repertoire-source-dun-script-bash-depuis-linterieur.html
+#la ligne du dessus proviens du site internet https://www.ipgirl.com/71/obtenir-le-repertoire-source-dun-script-bash-depuis-linterieur.html
 echo resultats programme 1 configuration 1:
 $DIR/../curiosity-perf programme-test_TP9/programme-test1 20 25 25 0.4 69 1000 $DIR/res_programme1_config1
 echo
