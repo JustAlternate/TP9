@@ -1,7 +1,7 @@
 CC=clang -Wall
 
 #tous les executables (sauf les curiosiy-test%)
-PROGRAMMES=curiosity-obs curiosity-perf curiosity-test test_generation_terrains curiosity robot_terrain test_robot test_terrain
+PROGRAMMES=curiosity-obs curiosity-obs2 curiosity-perf curiosity-test test_generation_terrains curiosity robot_terrain test_robot test_terrain
 #tous les curiosity-test% (mis à part pour la lisibilitée)
 CURIOSITY-TEST-ALL=curiosity-test0  curiosity-test1 curiosity-test2 curiosity-test3 curiosity-test4 curiosity-test5 curiosity-test6 curiosity-test7 curiosity-test8 curiosity-test9
 all: $(PROGRAMMES) $(CURIOSITY-TEST-ALL)
