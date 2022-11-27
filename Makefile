@@ -1,7 +1,7 @@
 CC=clang -Wall
 curiosity-test-all=curiosity-test0  curiosity-test1 curiosity-test2 curiosity-test3 curiosity-test4 curiosity-test5 curiosity-test6 curiosity-test7 curiosity-test8 curiosity-test9
 
-PROGRAMMES=curiosity-obs curiosity-perf curiosity-test test_generation_terrains curiosity robot_terrain test_robot test_terrain curiosity-test%
+PROGRAMMES=curiosity-obs curiosity-perf curiosity-test test_generation_terrains curiosity robot_terrain test_robot test_terrain
 all: $(PROGRAMMES) $(curiosity-test-all)
 
 tests=resultat_TP8
@@ -56,36 +56,10 @@ curiosity-obs.o: curiosity-obs.c observateur.h environnement.h programme.h gener
 
 # chiant
 
-interprete0.o: interpretei/interprete0.c interprete.h environnement.h \
+interprete%.o: interpretei/interprete%.c interprete.h environnement.h \
 	programme.h type_pile.h robot.h terrain.h
-	$(CC) -g $^
-interprete1.o: interpretei/interprete1.c interprete.h environnement.h \
-	programme.h type_pile.h robot.h terrain.h
-	$(CC) -g $^
-interprete2.o: interpretei/interprete2.c interprete.h environnement.h \
-	programme.h type_pile.h robot.h terrain.h
-	$(CC) -g $^
-interprete3.o: interpretei/interprete3.c interprete.h environnement.h \
-	programme.h type_pile.h robot.h terrain.h
-	$(CC) -g $^
-interprete4.o: interpretei/interprete4.c interprete.h environnement.h \
-	programme.h type_pile.h robot.h terrain.h
-	$(CC) -g $^
-interprete5.o: interpretei/interprete5.c interprete.h environnement.h \
-	programme.h type_pile.h robot.h terrain.h
-	$(CC) -g $^
-interprete6.o: interpretei/interprete6.c interprete.h environnement.h \
-	programme.h type_pile.h robot.h terrain.h
-	$(CC) -g $^
-interprete7.o: interpretei/interprete7.c interprete.h environnement.h \
-	programme.h type_pile.h robot.h terrain.h
-	$(CC) -g $^
-interprete8.o: interpretei/interprete8.c interprete.h environnement.h \
-	programme.h type_pile.h robot.h terrain.h
-	$(CC) -g $^
-interprete9.o: interpretei/interprete9.c interprete.h environnement.h \
-	programme.h type_pile.h robot.h terrain.h
-	$(CC) -g $^
+	$(CC) -c $^
+	rm *.h.gch
 
 curiosity-test0: curiosity-test.o environnement.o programme.o interprete0.o \
 	robot.o terrain.o type_pile.o observateur.o
@@ -152,6 +126,6 @@ curiosity-obs: curiosity-obs.o environnement.o observateur.o programme.o interpr
 	$(CC) $^ -o $@
 
 clean:
-	rm -f $(PROGRAMMES) *.o
+	rm -f $(PROGRAMMES) $(curiosity-test-all) *.o *.h.gch
 
 clear: clean
