@@ -30,6 +30,7 @@ robot.o: robot.c robot.h
 terrain.o: terrain.c terrain.h
 
 observateur.o: observateur.c observateur.h programme.h
+observateur2.o: observateur2.c observateur.h programme.h
 
 environnement.o: environnement.c environnement.h observateur.h robot.h terrain.h programme.h
 
@@ -92,6 +93,8 @@ curiosity-perf: curiosity-perf.o environnement.o programme.o interprete.o genera
 	$(CC) $^ -o $@
 
 curiosity-obs: curiosity-obs.o environnement.o observateur.o programme.o interprete.o generation_terrains.o robot.o terrain.o type_pile.o 
+	$(CC) $^ -o $@
+curiosity-obs2: curiosity-obs.o environnement.o observateur2.o programme.o interprete.o generation_terrains.o robot.o terrain.o type_pile.o 
 	$(CC) $^ -o $@
 
 

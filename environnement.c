@@ -57,19 +57,19 @@ resultat_deplacement avancer_envt(Environnement *envt) {
   }
   return OK_DEPL;
 
-  envt->etat = faire_transition(envt->etat, Avancer);
+  envt->etat = faire_transition(envt->etat, Avancer, 0);
 }
 
 /* Tourner le robot à gauche */
 void gauche_envt(Environnement *envt) { 
   tourner_a_gauche(&(envt->r)); 
-  envt->etat = faire_transition(envt->etat, Gauche); 
+  envt->etat = faire_transition(envt->etat, Gauche, 0); 
   }
 
 /* Tourner le robot à droite */
 void droite_envt(Environnement *envt) { 
   tourner_a_droite(&(envt->r));
-  envt->etat = faire_transition(envt->etat, Droite); 
+  envt->etat = faire_transition(envt->etat, Droite, 0); 
   }
 
 /* Effectuer une mesure
@@ -95,7 +95,7 @@ int mesure_envt(Environnement *envt, int d) {
   int mx, my; // Position de la mesure
 
   position(&(envt->r), &x, &y);
-  envt->etat = faire_transition(envt->etat, Mesure);
+  envt->etat = faire_transition(envt->etat, Mesure, d);
 
   switch (orient(&(envt->r))) {
   case Nord:

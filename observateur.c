@@ -7,7 +7,7 @@ int init_etat_obs(){
   return 0;
 }
  
-int faire_transition(etat e, Type_Commande c){
+int faire_transition(etat e, Type_Commande c, int direction){//int direction n'est pas utilisé mais est utile pour que observateur 1 et 2 aient le même observateur.h
   /* 
   Arguments : Un etat e , une command c  
   Renvoie l'état suivant en fonction de la command 

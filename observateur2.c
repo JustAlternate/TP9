@@ -30,7 +30,7 @@ int faire_transition(etat e, Type_Commande c, int direction){
       }
       return 0;
     case 1:
-      if (c == Gauche || c == Droit || c == Avancer){
+      if (c == Gauche || c == Droite || c == Avancer){
         return 0;
       }
       return 1;
@@ -57,7 +57,7 @@ int faire_transition(etat e, Type_Commande c, int direction){
       return 4; 
     case 6:
       return 6;
+  }
+  printf("attetention erreur observateur2: configuration état/action non");
+  return 0;
 }
-
-
-
