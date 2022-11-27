@@ -12,7 +12,7 @@ int faire_transition(etat e, Type_Commande c, int direction){//int direction n'e
   Arguments : Un etat e , une command c  
   Renvoie l'état suivant en fonction de la command 
   */
-  printf("faire_transition appeler avec etat %d et commande %d\n", e, c);
+  //printf("faire_transition appeler avec etat %d et commande %d\n", e, c);
   switch (e)
   {
   case 0:
@@ -48,10 +48,8 @@ int faire_transition(etat e, Type_Commande c, int direction){//int direction n'e
 
 int est_accepteur(int etat){
   if(etat == 2){
-    printf("non_accepteur\n");
     return 0; // etat non accepteur
   }else{
-    printf("accepteur\n");
     return 1; //etat accepteur
   }
 }

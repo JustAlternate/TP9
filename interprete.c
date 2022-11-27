@@ -94,7 +94,7 @@ resultat_inter exec_pas(Programme *prog, Environnement *envt,
 
   // Commande courante
   c = prog->tab[etat->pc];
-  print_cmd(c.cmd);
+  //print_cmd(c.cmd);
   switch (c.cmd)
   {
   case Avancer:

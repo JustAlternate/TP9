@@ -24,15 +24,15 @@ int main(int argc, char** argv){
   {
     res = exec_pas(&prog, &envt, &etat);
     /* Affichage du terrain et du robot */
-    afficher_envt(&envt);
+    //afficher_envt(&envt);
   } while (res == OK_ROBOT && est_accepteur(envt.etat));
 
   if(!est_accepteur(envt.etat)){
-    printf("le programme est incorect\n"); 
+    printf("le programme est rejeté\n"); 
     return 1;
   }
   else{
-    printf("le programme est correct, voici le résultat de l'exécution:\n");
+    printf("le programme est accepté, voici le résultat de l'exécution:\n");
   }
 
   switch (res) {
