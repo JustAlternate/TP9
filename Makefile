@@ -7,11 +7,19 @@ CURIOSITY-TEST-ALL=curiosity-test0  curiosity-test1 curiosity-test2 curiosity-te
 all: $(PROGRAMMES) $(CURIOSITY-TEST-ALL)
 
 #tous les test
-tests=resultat_TP8
+tests=resultat_TP8 tests_obs1 tests_obs2
 tests: curiosity-perf $(tests)
 
 resultat_TP8:
 	resultats_TP8/./generer_resultats_programmes.sh
+
+tests_obs1:
+	programme_test_observateur/lancer_tests_obs1.sh
+	
+tests_obs2:
+	programme_test_observateur/lancer_tests_obs2.sh
+	
+
 
 ######################################################################
 #                       Règles de compilation                        #
