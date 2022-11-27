@@ -187,10 +187,10 @@ int main(int argc, char **argv) {
     break;
     }
   }
-  printf("nombre total de test: %d\nnombre de réussite:%d\nombre d'échec:%d\n"
+  printf("nombre total de test: %d\nnombre de réussite:%d\nnombre d'échec:%d\nnombre d'erreur:%d\n"
   "  -tombé dans l'eau:%d\n  -écrasé contre un rocher:%d\n  -il est perdu:%d\n"
   "nombre moyen de pas effectué pour les sorties:%f\n",
-  N, nb_sorti, nb_bloque + nb_ecrase + nb_tombe, 
+  N, nb_sorti, nb_bloque + nb_ecrase + nb_tombe, N - (nb_sorti + nb_bloque + nb_ecrase + nb_tombe),
   nb_tombe, nb_ecrase, nb_bloque, 
   (float)somme_pas / (float)nb_sorti);
   fclose(f);
