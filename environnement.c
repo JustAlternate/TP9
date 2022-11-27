@@ -33,6 +33,7 @@ erreur_terrain initialise_environnement(Environnement *envt,
 
 resultat_deplacement avancer_envt(Environnement *envt) {
   int x, y; // Position devant le robot
+  envt->etat = faire_transition(envt->etat, Avancer, 0);
 
   // Récupérer la position devant le robot
   position_devant(&(envt->r), &x, &y);
@@ -57,7 +58,6 @@ resultat_deplacement avancer_envt(Environnement *envt) {
   }
   return OK_DEPL;
 
-  envt->etat = faire_transition(envt->etat, Avancer, 0);
 }
 
 /* Tourner le robot à gauche */

@@ -10,6 +10,72 @@ void init_etat(etat_inter *etat) {
   etat->pc = 0;
 }
 
+void print_cmd(Type_Commande cmd){
+  switch (cmd)
+  {
+  case Avancer:
+    printf("commande executée: Avancer\n");
+    break;
+  case Gauche:
+    printf("commande executée: Gauche\n");
+    break;
+  case Droite:
+    printf("commande executée: Droite\n");
+    break;
+  case Mesure:
+    printf("commande executée: Mesure\n");
+    break;
+  case Marque:
+    printf("commande executée: Marque\n");
+    break;
+  case DebutBloc:
+    printf("commande executée: DebutBloc\n");
+    break;
+  case FinBloc:
+    printf("commande executée: FinBloc\n");
+    break;
+  case EmpilerNb:
+    printf("commande executée: EmpilerNb\n");
+    break;
+  case ExecBloc:
+    printf("commande executée: ExecBloc\n");
+    break;
+  case CondExec:
+    printf("commande executée: CondExec\n");
+    break;
+  case Echange:
+    printf("commande executée: Echange\n");
+    break;
+  case Mult:
+    printf("commande executée: Mult\n");
+    break;
+  case Add:
+    printf("commande executée: Add\n");
+    break;
+  case Div:
+    printf("commande executée: Div\n");
+    break;
+  case Sub:
+    printf("commande executée: Sub\n");
+    break;
+  case Rotation:
+    printf("commande executée: Rotation\n");
+    break;
+  case Clone:
+    printf("commande executée: Clone\n");
+    break;
+  case Boucle:
+    printf("commande executée: Boucle\n");
+    break;
+  case Ignore:
+    printf("commande executée: Ignore\n");
+    break;
+
+  default:
+    printf("commande non comprise\n");
+  }
+}
+
 /* Pas d'exécution de l'interprète : exécute une commande, modifie
    l'environnement et l'état, renvoie l'état du robot */
 resultat_inter exec_pas(Programme *prog, Environnement *envt,
@@ -28,8 +94,9 @@ resultat_inter exec_pas(Programme *prog, Environnement *envt,
 
   // Commande courante
   c = prog->tab[etat->pc];
-
-  switch (c.cmd) {
+  print_cmd(c.cmd);
+  switch (c.cmd)
+  {
   case Avancer:
     res = avancer_envt(envt);
     switch (res) {

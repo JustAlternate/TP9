@@ -61,3 +61,11 @@ int faire_transition(etat e, Type_Commande c, int direction){
   printf("attetention erreur observateur2: configuration état/action non");
   return 0;
 }
+
+int est_accepteur(int etat){
+  if(etat == 6){
+    return 0; //etat non accepteur
+  }else{
+    return 1; //etat accepteur
+  }
+}

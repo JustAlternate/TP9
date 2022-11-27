@@ -25,10 +25,10 @@ int main(int argc, char** argv){
     res = exec_pas(&prog, &envt, &etat);
     /* Affichage du terrain et du robot */
     afficher_envt(&envt);
-  } while (res == OK_ROBOT && envt.etat != 2);
+  } while (res == OK_ROBOT && est_accepteur(envt.etat));
 
-  if(envt.etat == 2){
-    printf("le programme est incorect\n");
+  if(!est_accepteur(envt.etat)){
+    printf("le programme est incorect\n"); 
     return 1;
   }
   else{
