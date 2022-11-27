@@ -10,7 +10,7 @@ void init_etat(etat_inter *etat) {
   etat->pc = 0;
 }
 
-void print_cmd(Type_Commande cmd){
+void print_cmd(Type_Commande cmd){ // permet d'afficher la commande
   switch (cmd)
   {
   case Avancer:
@@ -94,7 +94,6 @@ resultat_inter exec_pas(Programme *prog, Environnement *envt,
 
   // Commande courante
   c = prog->tab[etat->pc];
-  //print_cmd(c.cmd);
   switch (c.cmd)
   {
   case Avancer:

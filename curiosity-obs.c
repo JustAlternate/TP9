@@ -23,8 +23,7 @@ int main(int argc, char** argv){
   do
   {
     res = exec_pas(&prog, &envt, &etat);
-    /* Affichage du terrain et du robot */
-    //afficher_envt(&envt);
+    /* Pas d'affichage du terrain et du robot car cela nuirait à la compréhension du programme*/
   } while (res == OK_ROBOT && est_accepteur(envt.etat));
 
   if(!est_accepteur(envt.etat)){
