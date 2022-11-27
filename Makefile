@@ -1,11 +1,13 @@
 CC=clang -Wall
-curiosity-test-all=curiosity-test0  curiosity-test1 curiosity-test2 curiosity-test3 curiosity-test4 curiosity-test5 curiosity-test6 curiosity-test7 curiosity-test8 curiosity-test9
 
+#tous les executables (sauf les curiosiy-test%)
 PROGRAMMES=curiosity-obs curiosity-perf curiosity-test test_generation_terrains curiosity robot_terrain test_robot test_terrain
-all: $(PROGRAMMES) $(curiosity-test-all)
+#tous les curiosity-test% (mis à part pour la lisibilitée)
+CURIOSITY-TEST-ALL=curiosity-test0  curiosity-test1 curiosity-test2 curiosity-test3 curiosity-test4 curiosity-test5 curiosity-test6 curiosity-test7 curiosity-test8 curiosity-test9
+all: $(PROGRAMMES) $(CURIOSITY-TEST-ALL)
 
+#tous les test
 tests=resultat_TP8
-
 tests: curiosity-perf $(tests)
 
 resultat_TP8:
@@ -54,12 +56,47 @@ curiosity-perf.o: curiosity-perf.c environnement.h programme.h generation_terrai
 
 curiosity-obs.o: curiosity-obs.c observateur.h environnement.h programme.h generation_terrains.h interprete.h robot.h terrain.h type_pile.h
 
-# chiant
-
+#cette compilation crée des fichiers .h.gch, nous ne savons pas pourquoi et ils sont innutiles: Nous les suprimons donc automatiquement
 interprete%.o: interpretei/interprete%.c interprete.h environnement.h \
 	programme.h type_pile.h robot.h terrain.h
 	$(CC) -c $^
-	rm *.h.gch
+	rm *.h.gch  
+
+
+######################################################################
+#                       Règles d'édition de liens                    #
+######################################################################
+
+test_terrain: test_terrain.o terrain.o
+	$(CC) $^ -o $@
+
+test_robot: test_robot.o robot.o
+	$(CC) $^ -o $@
+
+robot_terrain: robot_terrain.o terrain.o robot.o
+	$(CC) $^ -o $@
+
+curiosity: curiosity.o environnement.o programme.o interprete.o \
+	robot.o terrain.o type_pile.o observateur.o
+	$(CC) $^ -o $@
+
+curiosity-test: curiosity-test.o environnement.o programme.o interprete.o \
+	robot.o terrain.o type_pile.o observateur.o
+	$(CC) $^ -o $@
+
+test_generation_terrains: test_generation_terrains.o generation_terrains.o terrain.o
+	$(CC) $^ -o $@
+
+curiosity-perf: curiosity-perf.o environnement.o programme.o interprete.o generation_terrains.o\
+	robot.o terrain.o type_pile.o observateur.o
+	$(CC) $^ -o $@
+
+curiosity-obs: curiosity-obs.o environnement.o observateur.o programme.o interprete.o generation_terrains.o robot.o terrain.o type_pile.o 
+	$(CC) $^ -o $@
+
+
+
+#ça prend de la place mais nous n'avons pas réussis à faire autrement (le curiosity-test% ne fonctionnant pas lorsque le interprete% est dans un sous dossier)
 
 curiosity-test0: curiosity-test.o environnement.o programme.o interprete0.o \
 	robot.o terrain.o type_pile.o observateur.o
@@ -94,41 +131,16 @@ curiosity-test9: curiosity-test.o environnement.o programme.o interprete9.o \
 
 
 ######################################################################
-#                       Règles d'édition de liens                    #
+#                       Règles de suppression                        #
 ######################################################################
 
-test_terrain: test_terrain.o terrain.o
-	$(CC) $^ -o $@
-
-test_robot: test_robot.o robot.o
-	$(CC) $^ -o $@
-
-robot_terrain: robot_terrain.o terrain.o robot.o
-	$(CC) $^ -o $@
-
-curiosity: curiosity.o environnement.o programme.o interprete.o \
-	robot.o terrain.o type_pile.o observateur.o
-	$(CC) $^ -o $@
-
-curiosity-test: curiosity-test.o environnement.o programme.o interprete.o \
-	robot.o terrain.o type_pile.o observateur.o
-	$(CC) $^ -o $@
-
-
-test_generation_terrains: test_generation_terrains.o generation_terrains.o terrain.o
-	$(CC) $^ -o $@
-
-curiosity-perf: curiosity-perf.o environnement.o programme.o interprete.o generation_terrains.o\
-	robot.o terrain.o type_pile.o observateur.o
-	$(CC) $^ -o $@
-
-curiosity-obs: curiosity-obs.o environnement.o observateur.o programme.o interprete.o generation_terrains.o robot.o terrain.o type_pile.o 
-	$(CC) $^ -o $@
-
+#supprime les executables et les .o
 clean:
-	rm -f $(PROGRAMMES) $(curiosity-test-all) *.o *.h.gch
+	rm -f $(PROGRAMMES) $(CURIOSITY-TEST-ALL) *.o *.h.gch
 
-clear: clean
-
+#supprime les fichers de resultat
 clean-tests:
 	rm resultats_TP8/res* resultats_TP8/stats*
+
+#supprime tout ce qui peut être créer avec le makefile( executable + .o + resultats)
+clear: clean clean-tests
