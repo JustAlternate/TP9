@@ -4,7 +4,12 @@ curiosity-test-all=curiosity-test0  curiosity-test1 curiosity-test2 curiosity-te
 PROGRAMMES=curiosity-obs curiosity-perf curiosity-test test_generation_terrains curiosity robot_terrain test_robot test_terrain curiosity-test%
 all: $(PROGRAMMES) $(curiosity-test-all)
 
+tests=resultat_TP8
 
+tests: $(tests)
+
+resultat_TP8:
+	resultats_TP8/./generer_resultats_programmes.sh
 
 ######################################################################
 #                       Règles de compilation                        #
