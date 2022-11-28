@@ -31,7 +31,7 @@ tests_obs2: curiosity-obs2
 	programme_test_observateur/lancer_tests_obs2.sh
 	
 tests_TP7: $(CURIOSITY-TEST-ALL)
-	fichiers_test_TP7/./lance_test_tous_les_programmes_sur_tout_les_curiosity.sh
+	fichiers_test_TP7/lance_test_tous_les_programmes_sur_tout_les_curiosity.sh
 
 
 ######################################################################
