@@ -39,6 +39,8 @@ resultat_inter exec_pas(Programme *prog, Environnement *envt,
       return CRASH_ROBOT;
     case SORTIE:
       return SORTIE_ROBOT;
+    case ERREUR_PROGRAMME:
+      return ARRET_ROBOT; //n'est pas censé arriver
     }
     break;
   case Gauche:
