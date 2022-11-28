@@ -8,7 +8,7 @@ all: $(PROGRAMMES) $(CURIOSITY-TEST-ALL)
 
 #tous les test
 tests=resultat_TP8 tests_obs1 tests_obs2
-tests: curiosity-perf $(tests)
+tests: $(tests)
 
 tests_TP7:
 	fichiers_test_TP7/./lance_test_tous_les_programmes_sur_tout_les_curiosity.sh
@@ -17,17 +17,17 @@ tests_TP7:
 #                       Règles de test                               #
 ######################################################################
 
-resultat_TP8:
+resultat_TP8: curiosity-perf
 	echo
 	echo RESULTAT_TP8
 	resultats_TP8/./generer_resultats_programmes.sh
 
-tests_obs1:
+tests_obs1: curiosity-obs
 	echo
 	echo tests_obs1
 	programme_test_observateur/lancer_tests_obs1.sh
 	
-tests_obs2:
+tests_obs2: curiosity-obs2
 	echo
 	echo tests_obs2
 	programme_test_observateur/lancer_tests_obs2.sh
