@@ -1,4 +1,4 @@
-fichiers_test_TP7/terrain_test.txt
-fichiers_test_TP7/programme_sortie_terrain.txt
+terrain_test.txt
+programme_sortie_terrain.txt
 10000
 S

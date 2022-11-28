@@ -4,19 +4,18 @@ echo "================================================================="
 if [ $0 == './lance_test_tous_les_programmes_sur_tout_les_curiosity.sh' ]
 then
   for i in programme_test_* ; do
+    echo ========================================
     echo $i
+    echo ========================================
     ./testing.sh $i
   done
 else
-  if [ $0 == 'fichiers_test_TP7/./lance_test_tous_les_programmes_sur_tout_les_curiosity.sh' ]
-  then
-    for i in fichiers_test_TP7/programme_test_* ; do
+    cd fichiers_test_TP7
+    for i in programme_test_* ; do
+      echo ========================================
       echo $i
-      fichiers_test_TP7/./testing.sh $i
+      echo ========================================
+      ./testing.sh $i
     done
-  else
-    echo "Usage: lancé soit depuis le dossier fichiers_test_TP7 ou bien avec le makefile. "
-  fi
-
 fi
 

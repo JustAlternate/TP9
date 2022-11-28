@@ -1,5 +1,5 @@
-fichiers_test_TP7/terrain_test.txt
-fichiers_test_TP7/programme_boucles.txt
+terrain_test.txt
+programme_boucles.txt
 10000
 F
 0

@@ -1,5 +1,5 @@
-terrain_test.txt
-programme.txt
+fichiers_test_TP7/terrain_test.txt
+fichiers_test_TP7/programme.txt
 10000
 F
 10

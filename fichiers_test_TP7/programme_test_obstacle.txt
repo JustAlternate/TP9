@@ -1,4 +1,4 @@
-fichiers_test_TP7/terrain_beaucoup_caillou.txt
-fichiers_test_TP7/programme_sortie_terrain.txt
+terrain_beaucoup_caillou.txt
+programme_sortie_terrain.txt
 10000
 O
